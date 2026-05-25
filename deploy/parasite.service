@@ -1,0 +1,13 @@
+[Unit]
+Description=Arranque Seguro ParasiteCounter
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStartPre=/bin/sleep 40
+ExecStart=/usr/local/share/pynq-venv/bin/python /home/xilinx/start_parasite.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
